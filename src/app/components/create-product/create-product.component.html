@@ -1,0 +1,15 @@
+<h1 class="text-center mb-2 text-lg">Create Product</h1>
+<form [formGroup]="form" (ngSubmit)="onCreateProduct()">
+  <input formControlName="name"
+         type="text"
+         class="border-2 w-full py-2 px-4 mb-2"
+         [ngClass]="{'border-rose-600': title.dirty && title.invalid}"
+         focus
+         placeholder="Name...">
+  <div *ngIf="title.touched && title.invalid">
+    <p *ngIf="title.errors?.minlength" class="text-red-600 font-medium mb-2">Name should be more 2 chars</p>
+    <p *ngIf="title.errors?.required" class="text-red-600 font-medium mb-2">Name is required</p>
+    <p *ngIf="title.errors?.maxlength" class="text-red-600 font-medium mb-2">Name should be not more 50 chars</p>
+  </div>
+  <button type="submit" class="py-2 px-4 bg-blue-600 text-white" [disabled]="title.invalid">Create</button>
+</form>
