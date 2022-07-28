@@ -1,15 +1,8 @@
-<header class="w-screen top-0 right-0 left-0 bg-black h-[44px] flex justify-between fixed items-center px-10">
-  <span class="text-gray-400 text-xs">0 (123) 456-78-90 | 7 days per week | 9:00 - 18:00</span>
-  <span class="text-gray-400 text-xs">
-    <a routerLink="/login">Log In</a>
-    /
-    <a routerLink="/registration">Registration</a>
-  </span>
-</header>
-<navigation></navigation>
-<global-error></global-error>
+<div class="flex flex-col h-screen">
+  <page-header></page-header>
+  <navigation></navigation>
 
-<div class="max-w-2xl container mx-auto pt-5 mt-[99px]">
-  <router-outlet></router-outlet>
+  <div class="flex-auto relative overflow-y-auto">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-

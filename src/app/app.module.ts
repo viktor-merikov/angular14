@@ -14,6 +14,9 @@ import { FocusDirective } from './directives/focus.directive';
 import { ProductPageComponent } from './pages/product-view/product-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { Page404Component } from './pages/page404/page404.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     FocusDirective,
     ProductPageComponent,
     AboutPageComponent,
-    NavigationComponent
+    NavigationComponent,
+    HeaderComponent,
+    Page404Component,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
