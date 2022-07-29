@@ -1,1 +1,26 @@
-<p>about-page works!</p>
+<div class="h-full w-full bg-black flex flex-row py-10">
+  <div class="w-[49%] p-5">
+    <h1 class="text-white mb-5">How can you find us?</h1>
+    <div class="h-[70%] w-full flex justify-center items-center">
+      <iframe class="w-full h-full" src="https://maps.google.com/maps?q=Tel%20Aviv&t=&z=18&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+    <h1 class="text-white mt-5">Israel, Tel-Aviv, Arlzorov St.999</h1>
+  </div>
+  <div class="h-full w-[1px] bg-white"></div>
+  <div class="w-[49%] h-full p-5 flex flex-col justify-top items-center relative">
+    <h1 class="text-white mb-5 text-3xl">SINCE 1987</h1>
+    <div class="w-[100px] h-[2px] bg-white"></div>
+    <p class="text-xl text-white mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, exercitationem fugit in iure iusto neque pariatur possimus
+      praesentium quisquam sint velit veritatis voluptate. Ad corporis, in magnam odit quis sint soluta suscipit tempore tenetur. Alias aliquid amet asperiores
+      aut commodi corporis dolore doloribus, ducimus eligendi eos explicabo fuga ipsa ipsam libero magni nemo neque nisi nobis non, nostrum nulla officia optio
+      praesentium quas quo saepe sint sunt suscipit velit veniam vitae voluptas voluptatibus voluptatum? Aliquam delectus eaque iure maiores necessitatibus,
+      obcaecati quam sit? Ab atque beatae, doloribus ea est, laboriosam laborum, nemo nihil nulla quam quibusdam quidem rem reprehenderit saepe!</p>
+    <div class="text-white absolute bottom-0">
+      <span>Our social networks:</span>
+      <i class="icon-facebook text-blue-500 text-xl ml-5 cursor-pointer" (click)="window.open('http://facebook.com', '_blank')"></i>
+      <i class="icon-instagram text-rose-300 text-xl ml-5 cursor-pointer" (click)="window.open('http://instagram.com', '_blank')"></i>
+      <i class="icon-twitter text-blue-500 text-xl ml-5 cursor-pointer" (click)="window.open('http://twitter.com', '_blank')"></i>
+      <i class="icon-telegram text-blue-500 text-xl ml-5 cursor-pointer" (click)="window.open('http://telegram.org', '_blank')"></i>
+    </div>
+  </div>
+</div>
