@@ -1,0 +1,3 @@
+<div *ngIf="products$ | async as products" class="h-full w-full bg-black overflow-auto flex flex-row flex-wrap justify-around p-5">
+  <product *ngFor="let product of products | filterProducts: search" [product]="product"></product>
+</div>

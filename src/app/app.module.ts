@@ -11,7 +11,7 @@ import { FilterProductsPipe } from './pipes/filter-products.pipe';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { FocusDirective } from './directives/focus.directive';
-import { ProductPageComponent } from './pages/product-view/product-page.component';
+import { ProductsComponent } from './pages/products/products.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -27,7 +27,7 @@ import { HomeComponent } from './pages/home/home.component';
     ModalComponent,
     CreateProductComponent,
     FocusDirective,
-    ProductPageComponent,
+    ProductsComponent,
     AboutPageComponent,
     NavigationComponent,
     HeaderComponent,
