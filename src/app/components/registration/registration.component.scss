@@ -1,0 +1,39 @@
+input {
+  background: transparent;
+  border-bottom: 1px solid #494949;
+  padding: 5px 0;
+  line-height: 20px;
+  letter-spacing: 0.1em;
+  font-family: 'Rubik', sans-serif;
+
+  &:focus, :active {
+    outline: none;
+  }
+}
+
+.login-actions {
+  & > button {
+    outline: outset;
+    transition: color 0.3s ease-in;
+
+    &:hover {
+      background: black;
+    }
+
+    &:active {
+      outline: inset;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+
+      &:hover {
+        background: transparent;
+      }
+
+      &:active {
+        outline: outset;
+      }
+    }
+  }
+}

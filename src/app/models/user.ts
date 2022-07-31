@@ -4,7 +4,7 @@ export interface Geolocation {
 }
 
 export interface Address {
-  geolocation: Geolocation;
+  geolocation?: Geolocation;
   city: string;
   street: string;
   number: number;
@@ -18,13 +18,13 @@ export interface Name {
 
 export interface User {
   address: Address;
-  id: number;
+  id?: number;
   email: string;
   username: string;
   password: string;
   name: Name;
   phone: string;
-  __v: number;
+  __v?: number;
 }
 
 export type Token = string;

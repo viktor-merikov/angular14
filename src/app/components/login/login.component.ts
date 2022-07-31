@@ -11,7 +11,7 @@ export class LoginComponent {
 
   form = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)]),
   });
 
   constructor(public dialogRef: MatDialogRef<LoginComponent>) {

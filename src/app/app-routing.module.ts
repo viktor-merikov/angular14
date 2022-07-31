@@ -4,11 +4,15 @@ import {ProductsComponent} from './pages/products/products.component';
 import {AboutPageComponent} from './pages/about-page/about-page.component';
 import {Page404Component} from './pages/page404/page404.component';
 import {HomeComponent} from './pages/home/home.component';
+import {CartComponent} from './components/cart/cart.component';
+import {AuthGuard} from './guards/auth.guard';
 
 const routes: Routes = [
-  {title: 'Product', path: '', component: HomeComponent},
+  {title: 'Home', path: '', component: HomeComponent},
   {title: 'Product', path: 'products', component: ProductsComponent},
   {title: 'About', path: 'about', component: AboutPageComponent},
+  {title: 'Cart', path: 'cart', component: CartComponent},
+  {title: 'Settings', path: 'settings', component: CartComponent, canActivate: [AuthGuard]},
   {title: '404', path: '**', component: Page404Component},
 ];
 
