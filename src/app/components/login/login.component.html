@@ -1,0 +1,37 @@
+<div class="container flex flex-col h-[400px] w-[300px] bg-zinc-900 p-5 text-white items-center">
+
+  <div class="border-2 text-zinc-500 border-zinc-500 w-[100px] h-[100px] mb-2 rounded-full flex justify-center items-center">
+    <i class="icon-enter text-4xl"></i>
+  </div>
+
+  <form class="flex flex-col w-[80%]"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()">
+
+    <div class="container flex flex-col mb-7 text-zinc-500 relative">
+      <label class="w-full mb-2"> Username:</label>
+      <i class="icon-user flex items-center"><input type="text" formControlName="username" class="text-white mx-2"></i>
+      <div *ngIf="username.touched && username.invalid" class="absolute top-5 left-[1px]">
+        <p *ngIf="username.errors?.minlength" class="text-red-600 font-medium mb-2 text-xs">Too short username</p>
+        <p *ngIf="username.errors?.required" class="text-red-600 font-medium mb-2 text-xs">Username is required</p>
+        <p *ngIf="username.errors?.maxlength" class="text-red-600 font-medium mb-2 text-xs">Too long username</p>
+      </div>
+    </div>
+
+    <div class="container flex flex-col mb-7 text-zinc-500 relative">
+      <label class="w-full mb-2">Password:</label>
+      <i class="icon-key flex items-center"><input type="password" formControlName="password" class="text-white mx-2"></i>
+      <div *ngIf="password.touched && password.invalid" class="absolute top-5 left-[1px]">
+        <p *ngIf="password.errors?.minlength" class="text-red-600 font-medium mb-2 text-xs">Minimum 8 characters</p>
+        <p *ngIf="password.errors?.required" class="text-red-600 font-medium mb-2 text-xs">Password is required</p>
+      </div>
+    </div>
+
+    <div class="login-actions flex flex-row justify-between my-5 text-zinc-500">
+      <button type="submit" class="w-[80px] h-[30px]">OK</button>
+      <button type="button" class="w-[80px] h-[30px]" (click)="onClose()">Cancel</button>
+    </div>
+
+  </form>
+
+</div>

@@ -1,9 +1,13 @@
 <header class="h-[44px] bg-black flex justify-between items-center px-10">
   <span class="text-gray-400 text-xs select-none"><i class="icon-phone"></i> 0 (123) 456-78-90 | 7 days per week | 9:00 - 18:00</span>
-  <span class="text-gray-400 text-xs">
+  <span *ngIf="!token" class="text-gray-400 text-xs">
     <i class="icon-enter mx-2"></i>
-    <a routerLink="/login" class="select-none">Log In</a>
+    <a class="select-none cursor-pointer" (click)="onLogin()">Log In</a>
     /
-    <a routerLink="/registration" class="select-none">Registration</a>
-    </span>
+    <a class="select-none cursor-pointer" (click)="onRegistration()">Registration</a>
+  </span>
+  <span *ngIf="!!token" class="text-gray-400 text-xs">
+    <i class="icon-exit mx-2"></i>
+    <a class="select-none cursor-pointer" (click)="onLogOut()">Log Out</a>
+  </span>
 </header>
