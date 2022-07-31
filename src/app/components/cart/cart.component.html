@@ -1,1 +1,31 @@
-<p>cart works!</p>
+<div class="w-full h-full flex flex-col bg-black">
+  <ul *ngIf="cartService.cart.length; else emptyCart" class="px-5 my-5 h-[80%] overflow-auto">
+    <li class="text-white w-full h-[50px] flex flex-row items-center p-5 cart-title">
+      <span class="w-[65%] text-center">Name</span>
+      <span class="w-[10%] text-center">Count</span>
+      <span class="w-[10%] text-center">Price</span>
+      <span class="w-[10%] text-center">Sum</span>
+      <span class="w-[5%] text-center">Remove</span>
+    </li>
+    <li *ngFor="let item of cartService.cart; let i = index"
+        class="text-white w-full h-[50px] flex flex-row items-center p-5 cart-item"
+        [ngClass]="i % 2 == 0 ? 'bg-zinc-800' : 'bg-zinc-600' ">
+      <span class="w-[65%] cut-text">{{item.product.title}}</span>
+      <span class="w-[10%] text-center">{{item.quantity}}</span>
+      <span class="w-[10%] text-center">{{item.product.price | currency: 'ILS'}}</span>
+      <span class="w-[10%] text-center">{{(item.product.price * item.quantity) | currency: 'ILS' }}</span>
+      <i class="icon-bin w-[5%] text-center" (click)="onRemove(item.product.id)"></i>
+    </li>
+  </ul>
+
+  <p class="text-white w-full text-end px-10 text-xl"
+     *ngIf="cartService.cart.length">
+    Total price: <span class="text-green-400">{{onGetTotalPrice() | currency: 'ILS'}}</span>
+  </p>
+
+  <ng-template #emptyCart>
+    <div class="text-zinc-300 text-3xl w-full h-full flex justify-center items-center">
+      <span>CART IS EMPTY</span>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,12 @@
+li.cart-item {
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    color: red;
+    transform: scaleY(1.1);
+  }
+}
+
+li.cart-title {
+  pointer-events: none;
+}

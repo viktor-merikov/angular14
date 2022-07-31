@@ -20,7 +20,7 @@ export class HeaderComponent {
   }
 
   onLogin(): void {
-    this.dialog.open(LoginComponent).afterClosed().subscribe(credentials => this.authorizationService.login(credentials).subscribe(token => {
+    this.dialog.open(LoginComponent).afterClosed().subscribe(credentials => credentials && this.authorizationService.login(credentials).subscribe(token => {
       if (token) {
         this.authorizationService.user = credentials;
         this.notificationService.notify(NOTIFICATION_TYPE.SUCCESS, `Hello ${credentials.username}. Authorized successfully`);
@@ -29,7 +29,7 @@ export class HeaderComponent {
   }
 
   onRegistration(): void {
-    this.dialog.open(RegistrationComponent).afterClosed().subscribe(credentials => this.usersService.create(credentials).subscribe(user => {
+    this.dialog.open(RegistrationComponent).afterClosed().subscribe(credentials => credentials && this.usersService.create(credentials).subscribe(user => {
       console.log('Created', user.username);
     }));
   }

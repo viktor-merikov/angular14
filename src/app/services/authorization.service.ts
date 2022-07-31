@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Token, User} from '../models/user';
-import {map, Observable, tap} from 'rxjs';
+import {catchError, map, Observable, tap, throwError} from 'rxjs';
+import {NOTIFICATION_TYPE, NotificationService} from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class AuthorizationService {
 
   private readonly LOGIN_URL = "https://fakestoreapi.com/auth/login";
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient,
+              private notificationService: NotificationService) {
     const token = localStorage.getItem(this.TOKEN_KEY);
     const user = localStorage.getItem(this.USER_KEY);
     if (token) {
@@ -56,10 +58,16 @@ export class AuthorizationService {
       .post<{token: string}>(this.LOGIN_URL, {username: credentials.username, password: credentials.password})
       .pipe(
         map(t => t.token),
+        catchError(this.errorHandler),
         tap(t => {
           this._token = t;
           localStorage.setItem(this.TOKEN_KEY, this._token);
         })
       );
+  }
+
+  private errorHandler = (error: HttpErrorResponse) => {
+    this.notificationService.notify(NOTIFICATION_TYPE.FAIL, error.status == 401 ? 'Wrong credentials' : error.message);
+    return throwError(() => error.message);
   }
 }

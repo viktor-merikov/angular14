@@ -26,6 +26,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {JwtInterceptor} from './interceptors/jwt.interceptor';
 import {AuthGuard} from './guards/auth.guard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     LoginComponent,
     RegistrationComponent,
     SettingsComponent,
-    CartComponent
+    CartComponent,
+    ProductViewComponent
   ],
   imports: [
     BrowserModule,

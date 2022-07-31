@@ -1,0 +1,18 @@
+<h1 class="bg-black text-white text-center p-5 cut-text">{{product.title | titlecase}}</h1>
+<div class="container flex flex-row justify-center items-center bg-zinc-900 text-white h-[500px]">
+  <div class="w-[49%] flex justify-center items-center">
+    <img [src]="product.image" alt="Product img" class="max-w-[300px] max-h-[420px]">
+  </div>
+  <div class="h-[90%] w-[2px] bg-white"></div>
+  <div class="w-[49%] h-full p-5 text-white">
+    <p class="mb-2 h-[70%] overflow-auto">{{product.description}}</p>
+    <p class="mb-2">Price: <span class="text-green-500">{{product.price | currency: 'ILS'}}</span></p>
+    <div class="my-5 flex flex-row">
+      <button class="w-[100px] h-[30px] custom-action mr-5" (click)="onAddToCart()">Add to cart</button>
+      <button class="w-[30px] h-[30px] custom-action rounded-full" [disabled]="quantity == 99" (click)="quantity = quantity + 1">+</button>
+      <div class="w-[40px] h-[30px] text-center">{{quantity}}</div>
+      <button class="w-[30px] h-[30px] custom-action rounded-full" [disabled]="quantity == 1" (click)="quantity = quantity - 1">-</button>
+    </div>
+  </div>
+
+</div>
