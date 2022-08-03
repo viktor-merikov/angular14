@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductsService} from '../../services/products.service';
-import {Product} from '../../models/product';
 import {ModalService} from '../../services/modal.service';
+import {Product} from '../../models/generated';
 
 @Component({
   selector: 'create-product',
@@ -33,10 +33,6 @@ export class CreateProductComponent implements OnInit {
       image: '',
       category: '',
       price: 0,
-      rating: {
-        rate: 0,
-        count: 0
-      }
     }
     this.productService.create(newProduct).subscribe(() => this.modalService.close());
   }
